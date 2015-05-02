@@ -1,14 +1,13 @@
 #!/bin/bash
 
-DIR="$(dirname $(readlink -f $0))"
-source $DIR/../../vars.sh
+source vars.sh
 # ------------------------------------------------------------------------
 # Mount NFS Cache
 # ------------------------------------------------------------------------
 #mkdir -p /packages/core-$(uname -m)/pkg
 #mount -t -o nolock nfs $NFS_SERVER:/share/cache/arch/core-$(uname -m)/pkg /packages/core-$(uname -m)/pkg
-mount -t -o nolock nfs $NFS_SERVER:/share/cache/arch/$(uname -m)/var/lib/pacman/sync ${INSTALL_TARGET}/var/lib/pacman/sync
-mount -t -o nolock nfs $NFS_SERVER:/share/cache/arch/$(uname -m)/var/cache/pacman/pkg ${INSTALL_TARGET}/var/cache/pacman/pkg
+mount -t nfs -o nolock $NFS_SERVER:/share/cache/arch/$(uname -m)/var/lib/pacman/sync ${INSTALL_TARGET}/var/lib/pacman/sync
+mount -t nfs -o nolock $NFS_SERVER:/share/cache/arch/$(uname -m)/var/cache/pacman/pkg ${INSTALL_TARGET}/var/cache/pacman/pkg
 
 # Mount packages squashfs images
 # ------------------------------------------------------------------------
