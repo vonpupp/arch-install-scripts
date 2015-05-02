@@ -6,6 +6,8 @@ source vars.sh
 # ------------------------------------------------------------------------
 #mkdir -p /packages/core-$(uname -m)/pkg
 #mount -t -o nolock nfs $NFS_SERVER:/share/cache/arch/core-$(uname -m)/pkg /packages/core-$(uname -m)/pkg
+[[ ! -d "${INSTALL_TARGET}/var/cache/pacman/pkg" ]] && mkdir -m 755 -p "${INSTALL_TARGET}/var/cache/pacman/pkg"
+[[ ! -d "${INSTALL_TARGET}/var/lib/pacman" ]] && mkdir -m 755 -p "${INSTALL_TARGET}/var/lib/pacman"
 mount -t nfs -o nolock $NFS_SERVER:/share/cache/arch/$(uname -m)/var/lib/pacman/sync ${INSTALL_TARGET}/var/lib/pacman/sync
 mount -t nfs -o nolock $NFS_SERVER:/share/cache/arch/$(uname -m)/var/cache/pacman/pkg ${INSTALL_TARGET}/var/cache/pacman/pkg
 
@@ -50,8 +52,6 @@ PACMANEOF
 # ------------------------------------------------------------------------
 # Prepare pacman
 # ------------------------------------------------------------------------
-[[ ! -d "${INSTALL_TARGET}/var/cache/pacman/pkg" ]] && mkdir -m 755 -p "${INSTALL_TARGET}/var/cache/pacman/pkg"
-[[ ! -d "${INSTALL_TARGET}/var/lib/pacman" ]] && mkdir -m 755 -p "${INSTALL_TARGET}/var/lib/pacman"
 #${PACMAN} -Sy
 #${TARGET_PACMAN} -Sy
 pacman-key --refresh-keys
