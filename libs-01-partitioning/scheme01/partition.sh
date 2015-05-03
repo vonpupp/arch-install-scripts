@@ -21,4 +21,4 @@ sgdisk -t 2:8300 $DISK_DEV                  # Linux
 
 # label partitions
 sgdisk -c 1:"UEFI Boot" $DISK_DEV           # Label: UEFI Boot
-sgdisk -c 2:"cryptlvm" $DISK_DEV            # Label: cryptlvm
+sgdisk -c 2:"data" $DISK_DEV                # Label: cryptlvm
