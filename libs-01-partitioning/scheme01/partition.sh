@@ -16,9 +16,9 @@ sgdisk -n 1:0:+$PART_BOOT_SIZE $DISK_DEV    # Partition 1 (UEFI BOOT)       200M
 sgdisk -n 2:0:0 $DISK_DEV                   # Partition 3 (LUKS)            rest
 
 # set partition types
-sgdisk -t 1:ef00 $DISK_DEV                  # EFI
+#sgdisk -t 1:8300 $DISK_DEV                  #
 sgdisk -t 2:8300 $DISK_DEV                  # Linux
 
 # label partitions
-sgdisk -c 1:"UEFI Boot" $DISK_DEV           # Label: UEFI Boot
+sgdisk -c 1:"BIOS Boot" $DISK_DEV           # Label: UEFI Boot
 sgdisk -c 2:"cryptlvm" $DISK_DEV            # Label: cryptlvm
