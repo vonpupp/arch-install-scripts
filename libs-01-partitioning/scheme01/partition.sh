@@ -9,7 +9,7 @@ source vars.sh
 echo -e "\nFormatting disk...\n$HR"
 # disk prep
 sgdisk -Z $DISK_DEV                         # zap all on disk
-sgdisk -a 2048 -o $DISK_DEV                 # new gpt disk 2048 alignment
+#sgdisk -a 2048 -o $DISK_DEV                 # new gpt disk 2048 alignment
 
 # create partitions
 sgdisk -n 1:0:+$PART_BOOT_SIZE $DISK_DEV    # Partition 1 (UEFI BOOT)       200MB
