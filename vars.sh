@@ -16,7 +16,7 @@ HTTP_URL='http://archlinux.c3sl.ufpr.br/$repo/os/$arch'
 DISK_DEV="/dev/sda"
 INSTALL_DEV="/dev/mapper/lvm"
 PART_BOOT_SIZE="200M"
-PART_ROOT_SIZE="30G"
+PART_ROOT_SIZE="40G"
 PART_SWAP_SIZE="2G"
 
 # ------------------------------------------------------------------------
