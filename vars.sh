@@ -17,7 +17,7 @@ DISK_DEV="/dev/sda"
 INSTALL_DEV="/dev/mapper/lvm"
 PART_BOOT_SIZE="200M"
 PART_ROOT_SIZE="40G"
-PART_SWAP_SIZE="2G"
+PART_SWAP_SIZE="8G"
 
 # ------------------------------------------------------------------------
 
